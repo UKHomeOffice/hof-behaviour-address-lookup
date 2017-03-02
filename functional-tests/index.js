@@ -10,7 +10,7 @@ describe('tests', () => {
   let port;
 
   before(() => {
-    app = App(require('./apps/default')).listen(3000);
+    app = App(require('./apps/default')).listen();
     port = app.address().port;
   });
 
@@ -19,7 +19,7 @@ describe('tests', () => {
   });
 
   beforeEach(() => {
-    browser = Browser().url('http://localhost:3000');
+    browser = Browser().url(`http://localhost:${port}`);
     return browser;
   });
 
